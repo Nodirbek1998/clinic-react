@@ -1,0 +1,164 @@
+.container-fuild {
+  width: 1400px;
+  margin: 0 auto;
+  background-image: url("./images/1.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.lorem {
+  margin: 0;
+  padding-top: 100px;
+  color: black;
+}
+.lorem {
+  margin-bottom: 160px;
+  width: 40%;
+}
+.cards {
+  display: flex;
+  margin: 20px 10px;
+}
+/* Listregister css */
+.bg {
+  background-image: url("./images/2.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+/* Personal css*/
+.list {
+  margin-top: 100px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px black;
+  background-color: white;
+}
+.row {
+  width: 90%;
+  margin-left: 3%;
+  padding: 20px;
+  position: relative;
+}
+.list > p {
+  text-align: center;
+}
+.job {
+  color: black;
+}
+.job > b {
+  margin-right: 15px;
+}
+.fullName {
+  width: 80%;
+  text-align: center;
+  color: green;
+  font-size: 40px;
+}
+.btn-success {
+  width: 250px;
+  position: absolute;
+  margin-top: 20px;
+  right: 0;
+}
+.btn-list {
+  width: 300px;
+  background-color: white;
+  border: 1px solid darkgray;
+}
+.col-md-12 {
+  text-align: center;
+}
+.btn-list:hover {
+  background-color: darkgreen;
+  color: white;
+}
+.btn-green {
+  width: 200px;
+  margin-left: 30px;
+  border: 1px solid black;
+  background-color: green;
+  color: white;
+}
+/* Navbar css*/
+.navbar {
+  padding: 0;
+}
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+}
+.nav-item {
+  margin: 0 20px;
+  color: white;
+}
+.nav-item .fa {
+  margin: 0 10px;
+}
+/* Footer css*/
+.footer {
+  width: 1400px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: mediumturquoise;
+  color: white;
+}
+.education {
+  display: flex;
+}
+.clinic {
+  width: 40%;
+  margin-top: 30px;
+}
+.footer-ul {
+  display: inline-flex;
+  list-style-type: none;
+}
+.footer-ul ul {
+  list-style-type: none;
+}
+.footer-ul ul li {
+  margin: 20px;
+}
+.footer-ul ul :first-child {
+  font-weight: bold;
+  font-size: 18px;
+}
+.reserve {
+  text-align: center;
+}
+/* Card css */
+.card {
+  width: 250px;
+  margin-right: 30px;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 1px 1px 10px rgb(39, 37, 37);
+}
+.card:last-child {
+  margin-right: 0;
+}
+.card-img-top {
+  width: 150px;
+  height: 150px;
+  margin-left: 26px;
+  border-radius: 50%;
+}
+
+.card-title {
+  margin: 30px 0;
+}
+.index {
+  padding: 4px;
+  text-align: center;
+  border-radius: 8px;
+}
+/* Login page */
+
+.mt-5 {
+  width: 600px;
+  border: 1px solid black;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: honeydew;
+}
