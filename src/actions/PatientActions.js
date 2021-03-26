@@ -3,14 +3,16 @@ import {GET_ERRORS, GET_PATIENT_SAVE, GET_QUEUE} from './Types';
 
 
 export const addPatient = (newPatient, history) => async dispatch =>{
-
-    const res = await axios.post("/api/patient", newPatient)
        try {
+          const res = await axios.post(
+            "api/patient",
+            newPatient
+          );
             dispatch({
             type:GET_PATIENT_SAVE,
             payload : res.data.body
-        }); 
-        await history.push(`/listRegister/${newPatient.doctorId}`);
+        });
+        history.push("/");
        } catch (error) {
            dispatch({
             type:GET_ERRORS,
@@ -21,7 +23,7 @@ export const addPatient = (newPatient, history) => async dispatch =>{
 };
 
 export const getQueue = (id) => async dispatch =>{
-    const res = await axios.get(`/api/queue/${id}`)
+    const res = await axios.get(`api/queue/${id}`);
     dispatch({
         type: GET_QUEUE,
         payload : res.data.body

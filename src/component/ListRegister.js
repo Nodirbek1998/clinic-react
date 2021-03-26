@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {getDoctor} from '../actions/DoctorsActions';
 import {getQueue} from '../actions/PatientActions';
-import Header from './Header';
+import Navbar from './Navbar';
 
 class ListRegister extends Component {
     componentDidMount(){
@@ -17,10 +17,9 @@ class ListRegister extends Component {
         const {queue, doctor} = this.props;
         return (
            <div className='container-fuild bg'>
-                 <Header />
+                <Navbar />
                <div className='container'>
-                    <Personal data={doctor} queue={queue}/>
-                    
+                    <Personal data={doctor} queue={queue}/>                   
                </div>
                <Footer/>
             </div>

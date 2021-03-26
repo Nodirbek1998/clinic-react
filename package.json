@@ -30,7 +30,7 @@
       "react-app/jest"
     ]
   },
-   "proxy": "http://localhost",
+  "proxy": "https://clinic-react-spring.herokuapp.com/",
   "browserslist": {
     "production": [
       ">0.2%",

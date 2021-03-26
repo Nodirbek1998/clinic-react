@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getAllQueue} from '../../actions/QueueActions';
-
+import {getAllQueue, deleteQueue, addQueue} from '../../actions/QueueActions';
+import Header from '../Header';
 
 
  class Queue extends Component {
@@ -31,26 +31,57 @@ import {getAllQueue} from '../../actions/QueueActions';
              tables:this.props.tables
          }) 
      }
-
-    addPatient(id){
-        
+     deleteQueue(id){
+         this.props.deleteQueue(id, this.props.history);
      }
+     addQueue(id){
+        this.props.addQueue(id, this.props.history);
+     }
+   
     render() { 
             const {tables} = this.state;
             let tableBody ;
           if(tables.length > 0){
-              tableBody = tables.map(row =>{
-                               return(
-                                   <tr key={row.id} className="text-center">
-                                      <td>{row.name}</td>
-                                      <td>{row.id}</td>
-                                      <td>{row.patient.firstName}</td>
-                                      <td>{row.patient.lastName}</td>
-                                      <td>{row.patient.phone}</td>
-                                      <td><button className="btn btn-primary" style={{width:'100px',fontWeight:'bold',verticalAlign:"center"}}>ok</button></td>
-                                      <td><button className="btn btn-danger" style={{width:'100px',fontWeight:'bold',verticalAlign:"center"}}>delete</button></td>
-                                   </tr>
-                               )
+              tableBody =tables.map(row =>{
+                               return (
+                                 <tr key={row.id} className="text-center">
+                                   <td>{row.name}</td>
+                                   <td>{row.id}</td>
+                                   <td>{row.patient.firstName}</td>
+                                   <td>{row.patient.lastName}</td>
+                                   <td>{row.patient.phone}</td>
+                                   <td>
+                                     <button
+                                       className={`${
+                                         row.status
+                                           ? "btn btn-light"
+                                           : "btn btn-primary"
+                                       }`}
+                                       style={{
+                                         width: "100px",
+                                         fontWeight: "bold",
+                                         verticalAlign: "center",
+                                       }}
+                                       onClick={() => this.addQueue(row.id)}
+                                     >
+                                       ok
+                                     </button>
+                                   </td>
+                                   <td>
+                                     <button
+                                       className="btn btn-danger"
+                                       style={{
+                                         width: "100px",
+                                         fontWeight: "bold",
+                                         verticalAlign: "center",
+                                       }}
+                                       onClick={() => this.deleteQueue(row.id)}
+                                     >
+                                       delete
+                                     </button>
+                                   </td>
+                                 </tr>
+                               );
                            })
                         }else{
                             tableBody = "loading..."
@@ -58,7 +89,7 @@ import {getAllQueue} from '../../actions/QueueActions';
         return (
             <>
                 <div  style={{width:'1400px', margin:'0 auto'}}>
-
+                        <Header />
                         <div className="btn-group ">
                             <button type="button" className="btn btn-light border pr-5 pl-5 mr-2" style={{borderRadius:'10px', fontWeight:'bold'}}onClick={()=>this.onClick("A")}>A</button>
                             <button type="button" className="btn btn-light border pr-5 pl-5 mr-2" style={{borderRadius:'10px', fontWeight:'bold'}}onClick={()=>this.onClick("B")}>B</button>
@@ -91,7 +122,7 @@ import {getAllQueue} from '../../actions/QueueActions';
 
 Queue.propTypes = {
     getAllQueue : PropTypes.func.isRequired,
-    tables : PropTypes.object.isRequired
+    tables : PropTypes.array.isRequired
 }
 
 const mapStateToPorps = state => ({
@@ -100,4 +131,4 @@ const mapStateToPorps = state => ({
 })
 
 
-export default connect(mapStateToPorps, {getAllQueue})  (Queue);
+export default connect(mapStateToPorps, {getAllQueue, deleteQueue, addQueue})  (Queue);

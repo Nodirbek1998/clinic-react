@@ -22,21 +22,20 @@ class  Navbar extends Component{
 
         if (validToken) {
             if (token.role[0].roleName==="doctor") { 
-                return (<Link className="nav-link" to={`/doctor`}>
-                        <i className="fas fa-user-circle mr-1"></i>
-                        My books
-                    </Link>
-                )
+                return (
+                  <Link style={{color:'white'}} to={`/doctor`}>
+                    <i className="fas fa-user-circle mr-1"></i>
+                    {token.username}
+                  </Link>
+                );
             }
-            else{
-                return <Link className="nav-link text-white" to="/admin">Rental management</Link>
-            }
-
-        } else {
-            return (<Link className="nav-link text-white" to="/login">
-                Sign Up
-            </Link>)
-        }
+        }else{
+            return (
+              <Link className="nav-link text-white" to="/admin">
+                <h4>Home</h4>
+              </Link>
+            );
+        } 
     }
 
     signInChecking(auth){
@@ -61,7 +60,7 @@ class  Navbar extends Component{
   render(){ 
 
     return (
-    <nav className=" navbar bg-info pl-5 pr-5" style={{borderRadius:"10px"}} >
+    <nav className={this.props.auth.validToken?` navbar bg-info pl-5 pr-5`:`navbar`} style={{borderRadius:"10px"}} >
         {this.signUpChecking(this.props.auth)}
         <ul className ="navbar-nav">
             <li className="nav-item"><Link className='nav-link text-white' to='#'>Rus</Link></li>
